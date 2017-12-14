@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Things</string>
+    <string name="defaultUser">Hi, User!</string>
+    <string name="list">Lists</string>
+</resources>

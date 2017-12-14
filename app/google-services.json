@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "642686133875",
+    "firebase_url": "https://things-d6475.firebaseio.com",
+    "project_id": "things-d6475",
+    "storage_bucket": "things-d6475.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642686133875:android:e4403ad9b3392e2a",
+        "android_client_info": {
+          "package_name": "com.example.ritesh.things"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642686133875-l6na45dshqj9boiglaf0osv0knpncfrc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ritesh.things",
+            "certificate_hash": "936ce45208164ab2eb37b2d0ffdfb64975a538c0"
+          }
+        },
+        {
+          "client_id": "642686133875-846h4tnhve3f19h1blb14mtqcn7c5741.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj-EV5CkDxyh_xF9nRwNRyb4ogyOiUMDw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642686133875-846h4tnhve3f19h1blb14mtqcn7c5741.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
