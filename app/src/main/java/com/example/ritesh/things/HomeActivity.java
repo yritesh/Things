@@ -86,6 +86,7 @@ public class HomeActivity extends AppCompatActivity {
                     String value = dataSnapshot.getKey();
                     arrayList.add(value);
                     arrayAdapter.notifyDataSetChanged();
+                    Toast.makeText(HomeActivity.this, "Alpha", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
