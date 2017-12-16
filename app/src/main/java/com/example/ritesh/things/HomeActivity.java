@@ -6,6 +6,9 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
     private TextView usernameHomeActivity;
     private ImageView imageHomeActivity;
     private ArrayList<String> arrayList = new ArrayList<String>();
-    private ListView mListView;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,8 @@ public class HomeActivity extends AppCompatActivity {
 
         usernameHomeActivity = (TextView) findViewById(R.id.usernameHomeActivity);
         imageHomeActivity = (ImageView) findViewById(R.id.imageHomeActivity);
-        mListView = (ListView) findViewById(R.id.listsListView);
+        recyclerView = (RecyclerView) findViewById(R.id.listsRV);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         getUserData();
 
@@ -62,7 +66,7 @@ public class HomeActivity extends AppCompatActivity {
             String personGivenName = acct.getGivenName();
             String personFamilyName = acct.getFamilyName();
             String personEmail = acct.getEmail();
-            String personId = acct.getId();
+            final String personId = acct.getId();
             Log.d("id:", personId);
             Uri personPhoto = acct.getPhotoUrl();
 
@@ -76,17 +80,16 @@ public class HomeActivity extends AppCompatActivity {
 
             Query twoRef = rootRef.child(personId).orderByKey();
 
-            final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
 
-            mListView.setAdapter(arrayAdapter);
+
             twoRef.addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     Toast.makeText(getApplicationContext(),"working",Toast.LENGTH_LONG).show();
                     String value = dataSnapshot.getKey();
+                    //arrayList.add("new");
                     arrayList.add(value);
-                    arrayAdapter.notifyDataSetChanged();
-                    Toast.makeText(HomeActivity.this, "Alpha", Toast.LENGTH_SHORT).show();
+                    recyclerView.setAdapter(new listsRV(arrayList, personId, HomeActivity.this));
                 }
 
                 @Override
