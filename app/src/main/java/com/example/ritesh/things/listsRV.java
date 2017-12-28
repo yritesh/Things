@@ -2,6 +2,7 @@ package com.example.ritesh.things;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -48,7 +49,7 @@ public class listsRV extends RecyclerView.Adapter<listsRV.ProgrammingViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(final ProgrammingViewHolder holder, final int position) {
+    public void onBindViewHolder(final ProgrammingViewHolder holder, int position) {
 
 
         final DatabaseReference rootRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://things-d6475.firebaseio.com/members/" + personId + "/" + data.get(position));
@@ -74,13 +75,16 @@ public class listsRV extends RecyclerView.Adapter<listsRV.ProgrammingViewHolder>
 
             }
         });
-        ((ProgrammingViewHolder)holder).itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,data.get(position),Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(context, ListPageActivity.class);
+                i.putExtra("personId", personId);
+                i.putExtra("listId", data.get(holder.getAdapterPosition()));
+                context.startActivity(i);
+
             }
         });
-
     }
 
     @Override

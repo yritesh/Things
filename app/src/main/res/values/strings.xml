@@ -2,4 +2,12 @@
     <string name="app_name">Things</string>
     <string name="defaultUser">Hi, User!</string>
     <string name="list">Lists</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="title_activity_tab_list_member">TabListMemberActivity</string>
+    <string name="tab_text_1">Products</string>
+    <string name="tab_text_2">Members</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="addProduct">Add Product</string>
 </resources>

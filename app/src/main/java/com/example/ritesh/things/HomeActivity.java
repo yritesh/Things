@@ -41,7 +41,6 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     private TextView usernameHomeActivity;
-    private ImageView imageHomeActivity;
     private ArrayList<String> arrayList = new ArrayList<String>();
     private RecyclerView recyclerView;
 
@@ -51,7 +50,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         usernameHomeActivity = (TextView) findViewById(R.id.usernameHomeActivity);
-        imageHomeActivity = (ImageView) findViewById(R.id.imageHomeActivity);
         recyclerView = (RecyclerView) findViewById(R.id.listsRV);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
@@ -68,12 +66,10 @@ public class HomeActivity extends AppCompatActivity {
             String personEmail = acct.getEmail();
             final String personId = acct.getId();
             Log.d("id:", personId);
-            Uri personPhoto = acct.getPhotoUrl();
+
 
             String helloName = "Hi, " + personName + "!";
             usernameHomeActivity.setText(helloName);
-            Picasso.with(this).load(personPhoto).into(imageHomeActivity);
-
 
             final DatabaseReference rootRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://things-d6475.firebaseio.com/members");
 
@@ -85,7 +81,7 @@ public class HomeActivity extends AppCompatActivity {
             twoRef.addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    Toast.makeText(getApplicationContext(),"working",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"working",Toast.LENGTH_SHORT).show();
                     String value = dataSnapshot.getKey();
                     //arrayList.add("new");
                     arrayList.add(value);

@@ -28,4 +28,5 @@
             android:textColor="#ffff"
             android:textAlignment="center"/>
     </RelativeLayout>
+
 </android.support.v7.widget.CardView>
